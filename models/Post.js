@@ -6,7 +6,8 @@ Post.findAll = () => {
   return db.query(`SELECT * FROM posts;`);
 };
 
-Post.create = (post, id) => {
+Post.create = (post) => {
+  console.log('POST in MODEL', post);
   return db.one(`
     INSERT INTO posts
     (title, image_url, source_url, category, user_id)
@@ -17,7 +18,7 @@ Post.create = (post, id) => {
       post.image_url,
       post.source_url,
       post.category,
-      id
+      post.user_id
     ]
   );
 };
