@@ -5,7 +5,7 @@ controller.index = (req, res) => {
   Post
     .findAll()
     .then((data) => {
-      res.json(200)
+      res.json(data)
     })
     .catch((err) => {
       console.log('ERROR', err);
@@ -16,7 +16,8 @@ controller.create = (req, res) => {
   Post
     .create(req.body.post)
     .then((data) => {
-      res.sendStatus(201)
+      // res.status(201)
+      res.json({ post: data })
     })
     .catch((err) => {
       console.log('ERROR', err);
