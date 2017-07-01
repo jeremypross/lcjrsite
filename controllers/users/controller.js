@@ -18,6 +18,20 @@ controller.index = (req, res) => {
     });
 }
 
+controller.create = (req, res) => {
+  User
+    .create(req.body.user)
+    .then((data) => {
+      res.status(201)
+      res.json({ user: data })
+    })
+    .catch((err) => {
+      res.status(400)
+      res.json(err);
+    });
+};
+
+
 controller.authorizeToken = (req, res) => {
   jwt.verify(req.headers.authorization, 'taco cat', (err, decoded) => {
     if (err) {
@@ -75,18 +89,6 @@ controller.login = (req, res) => {
     });
 }
 
-controller.create = (req, res) => {
-  User
-    .create(req.body.user)
-    .then((data) => {
-      res.status(201)
-      res.json({ user: data })
-    })
-    .catch((err) => {
-      res.status(400)
-      res.json(err);
-    });
-};
 
 controller.update = (req, res) => {
   User

@@ -14,7 +14,7 @@ controller.index = (req, res) => {
 
 controller.create = (req, res) => {
   Post
-    .create(req.body.post)
+    .create(req.body.user)
     .then((data) => {
       res.sendStatus(201)
     })
