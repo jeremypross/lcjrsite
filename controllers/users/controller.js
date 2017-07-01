@@ -20,7 +20,7 @@ controller.index = (req, res) => {
 
 controller.create = (req, res) => {
   User
-    .create(req.body.user)
+    .create(req.body)
     .then((data) => {
       res.status(201)
       res.json({ user: data })

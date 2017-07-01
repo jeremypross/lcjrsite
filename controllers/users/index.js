@@ -7,7 +7,7 @@ router.post('/', controller.create);
 
 router.get('/dashboard', controller.authorizeToken);
 
-// router.post('/login', controller.login);
+router.post('/login', controller.login);
 
 router.get('/:id', controller.show);
 
