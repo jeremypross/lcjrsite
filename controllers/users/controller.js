@@ -39,9 +39,20 @@ controller.authorizeToken = (req, res) => {
         .status(401)
         .json({ error: err.message });
     } else {
-      res.status(200)
-      console.log('*** Token Successfully Authorized! ***');
-      // FIND SAVED ITEMS BY USER EMAIL TO DASHBOARD HERE
+      Post
+        .findById(decoded.user_id)
+        .then((data) => {
+          // console.log("DASHBOARD DATA:", data);
+          res.json({
+            data: data,
+            posts: data,
+            user_id: decoded.user_id
+          });
+        })
+        .catch((err) => {
+          console.log('ERROR', err);
+        })
+  // console.log('JSON DECODED', decoded);
     }
   })
 }

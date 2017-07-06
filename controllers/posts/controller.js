@@ -24,4 +24,17 @@ controller.create = (req, res) => {
     })
 }
 
+controller.show = (req, res) => {
+  Post
+    .findById(req.params.id)
+    .then((data) => {
+      res.json({ posts: data })
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
+
+
 module.exports = controller;

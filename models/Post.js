@@ -24,7 +24,7 @@ Post.create = (post) => {
 };
 
 Post.findById = (id) => {
-  return db.oneOrNone(`
+  return db.query(`
     SELECT * FROM posts
     WHERE user_id = $1`,
     [id]
