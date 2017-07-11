@@ -24,6 +24,14 @@ Post.create = (post) => {
 };
 
 Post.findById = (id) => {
+  return db.one(`
+    SELECT * FROM posts
+    WHERE id = $1`,
+    [id]
+  );
+};
+
+Post.findByUserId = (id) => {
   return db.query(`
     SELECT * FROM posts
     WHERE user_id = $1`,
@@ -50,9 +58,9 @@ Post.update = (post, id) => {
   );
 };
 
-Post.destroy = (id) => {
+Post.delete = (id) => {
   return db.none(`
-    DELETE FROM users
+    DELETE FROM posts
     WHERE id = $1`,
     [id]
   );

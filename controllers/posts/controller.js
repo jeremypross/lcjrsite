@@ -26,9 +26,21 @@ controller.create = (req, res) => {
 
 controller.show = (req, res) => {
   Post
-    .findById(req.params.id)
+    .findByUserId(req.params.id)
     .then((data) => {
       res.json({ posts: data })
+      console.log("DATA in CONTrOLLer", data)
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
+controller.destroy = (req, res) => {
+  Post
+    .delete(req.params.id, req.params.user_id)
+    .then(() => {
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.log('ERROR', err);

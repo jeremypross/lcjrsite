@@ -4,6 +4,7 @@ const jwt    = require('jsonwebtoken');
 const controller = {};
 
 const User   = require('../../models/User');
+const Post   = require('../../models/Post');
 
 controller.index = (req, res) => {
   User
@@ -40,11 +41,10 @@ controller.authorizeToken = (req, res) => {
         .json({ error: err.message });
     } else {
       Post
-        .findById(decoded.user_id)
+        .findByUserId(req.params.id)
         .then((data) => {
-          // console.log("DASHBOARD DATA:", data);
+          console.log("DASHBOARD DATA:", data);
           res.json({
-            data: data,
             posts: data,
             user_id: decoded.user_id
           });
@@ -52,7 +52,7 @@ controller.authorizeToken = (req, res) => {
         .catch((err) => {
           console.log('ERROR', err);
         })
-  // console.log('JSON DECODED', decoded);
+  console.log('JSON DECODED', decoded);
     }
   })
 }
