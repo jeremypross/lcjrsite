@@ -26,13 +26,37 @@ controller.create = (req, res) => {
 
 controller.show = (req, res) => {
   Post
-    .findByUserId(req.params.id)
+    .findById(req.params.id)
     .then((data) => {
-      res.json({ posts: data })
-      console.log("DATA in CONTrOLLer", data)
+      res.json({ post: data })
+      console.log("DATA in CONTrOLLer.show (should be one post)", data)
     })
     .catch((err) => {
       console.log('ERROR', err);
+    })
+}
+
+controller.edit = (req, res) => {
+  Post
+    .findById(req.params.id)
+    .then((data) => {
+      res.json({
+        post: data
+      })
+    })
+    .catch((err) => {
+      console.log("ERROR",err);
+    })
+}
+
+controller.update = (req, res) => {
+  Post
+    .update(req.body.post, req.params.id)
+    .then((data) => {
+      res.json({ post: data });
+    })
+    .catch((err) => {
+      console.log("ERROR", err);
     })
 }
 
