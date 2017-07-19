@@ -46,7 +46,7 @@ Post.update = (post, id) => {
       title = $1,
       image_url = $2,
       source_url = $3,
-      category = $4,
+      category = $4
     WHERE id = $5`,
     [
       post.title,
