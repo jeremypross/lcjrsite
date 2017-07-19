@@ -14,6 +14,7 @@ CREATE TABLE users (
 CREATE TABLE posts (
   id BIGSERIAL PRIMARY KEY,
   title TEXT,
+  post_text TEXT,
   image_url TEXT,
   source_url TEXT,
   category TEXT,
