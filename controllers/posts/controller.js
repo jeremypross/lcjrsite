@@ -17,7 +17,7 @@ controller.create = (req, res) => {
     .create(req.body.post)
     .then((data) => {
       // res.status(201)
-      res.json({ post: data })
+      res.json({ post: data.post })
     })
     .catch((err) => {
       console.log('ERROR', err);
