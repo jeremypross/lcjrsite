@@ -12,6 +12,28 @@ controller.index = (req, res) => {
     })
 }
 
+controller.music = (req, res) => {
+  Post
+    .findMusic()
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
+controller.art = (req, res) => {
+  Post
+    .findArt()
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
 controller.create = (req, res) => {
   Post
     .create(req.body.post)

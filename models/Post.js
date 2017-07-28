@@ -61,6 +61,20 @@ Post.update = (post, id) => {
   );
 };
 
+Post.findMusic = () => {
+  return db.query(`
+    SELECT * FROM posts
+    WHERE category ='Music'
+  `);
+}
+
+Post.findArt = () => {
+  return db.query(`
+    SELECT * FROM posts
+    WHERE category = 'Art'
+  `);
+}
+
 Post.delete = (id) => {
   return db.none(`
     DELETE FROM posts

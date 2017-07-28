@@ -3,6 +3,10 @@ const controller = require('./controller');
 
 router.get('/', controller.index);
 
+router.get('/music', controller.music);
+
+router.get('/art', controller.art);
+
 router.get('/:id', controller.show);
 
 router.get('/:id/edit', controller.edit);
