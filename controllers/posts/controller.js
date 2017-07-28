@@ -34,6 +34,50 @@ controller.art = (req, res) => {
     })
 }
 
+controller.news = (req, res) => {
+  Post
+    .findNews()
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
+controller.design = (req, res) => {
+  Post
+    .findDesign()
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
+controller.style = (req, res) => {
+  Post
+    .findStyle()
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
+controller.food = (req, res) => {
+  Post
+    .findFood()
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((err) => {
+      console.log('ERROR', err);
+    })
+}
+
 controller.create = (req, res) => {
   Post
     .create(req.body.post)

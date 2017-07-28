@@ -7,6 +7,14 @@ router.get('/music', controller.music);
 
 router.get('/art', controller.art);
 
+router.get('/news', controller.news);
+
+router.get('/design', controller.design);
+
+router.get('/style', controller.style);
+
+router.get('/food', controller.food);
+
 router.get('/:id', controller.show);
 
 router.get('/:id/edit', controller.edit);

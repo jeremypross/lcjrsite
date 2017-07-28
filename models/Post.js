@@ -75,6 +75,34 @@ Post.findArt = () => {
   `);
 }
 
+Post.findNews = () => {
+  return db.query(`
+    SELECT * FROM posts
+    WHERE category = 'News'
+  `);
+}
+
+Post.findDesign = () => {
+  return db.query(`
+    SELECT * FROM posts
+    WHERE category = 'Design'
+  `);
+}
+
+Post.findStyle = () => {
+  return db.query(`
+    SELECT * FROM posts
+    WHERE category = 'Style'
+  `);
+}
+
+Post.findFood = () => {
+  return db.query(`
+    SELECT * FROM posts
+    WHERE category = 'Food'
+  `);
+}
+
 Post.delete = (id) => {
   return db.none(`
     DELETE FROM posts
@@ -82,5 +110,7 @@ Post.delete = (id) => {
     [id]
   );
 };
+
+
 
 module.exports = Post;
